@@ -1,9 +1,19 @@
 ﻿//Task 1 - Real calculator
 
 Console.WriteLine("Enter first number:");
-double firstNumber = Convert.ToDouble(Console.ReadLine());
+bool firstSuccess = double.TryParse(Console.ReadLine(), out double firstNumber);
+if (!firstSuccess)
+{
+    Console.WriteLine("Please enter valid operator!");
+    return;
+}
 Console.WriteLine("Enter second number");
-double secondNumber = Convert.ToDouble(Console.ReadLine());
+bool secondSuccess = double.TryParse(Console.ReadLine(), out double secondNumber);
+if (!secondSuccess)
+{
+    Console.WriteLine("Please enter valid operator!");
+    return;
+}
 Console.WriteLine("Enter operator (+, -, *, /)");
 char userOperator = Convert.ToChar(Console.ReadLine());
 double result = 0;
@@ -35,4 +45,4 @@ switch (userOperator)
 }
 
 if (correct)
-    Console.WriteLine($"Your resulit is:"+result);
+    Console.WriteLine($"Your resulit is:" + result);
