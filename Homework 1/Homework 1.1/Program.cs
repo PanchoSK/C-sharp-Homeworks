@@ -15,7 +15,12 @@ if (!secondSuccess)
     return;
 }
 Console.WriteLine("Enter operator (+, -, *, /)");
-char userOperator = Convert.ToChar(Console.ReadLine());
+bool thirdSuccess = char.TryParse(Console.ReadLine(), out char userOperator);
+if(!thirdSuccess)
+{
+    Console.WriteLine("Please enter valid operator");
+    return;
+}
 double result = 0;
 bool correct = true;
 switch (userOperator)
